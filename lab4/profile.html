@@ -1,0 +1,56 @@
+<html>
+<head>
+    <title>Fill up the form</title>
+
+    <script>
+        function Validation() {
+
+            let userid = document.getElementsByName("userid")[0].value;
+            let picture = document.getElementsByName("picture")[0].value;
+
+            if (userid == "") {
+                alert("User ID cannot be empty");
+                return false;
+            }
+
+            if (isNaN(userid)) {
+                alert("User ID must be a number");
+                return false;
+            }
+
+            if (userid <= 0) {
+                alert("User ID must be a positive number");
+                return false;
+            }
+
+            if (picture == "") {
+                alert("Picture cannot be empty");
+                return false;
+            }
+
+            return true;
+        }
+    </script>
+
+</head>
+
+<body>
+
+<form onsubmit="return Validation()">
+    <fieldset style="width: 400px;">
+        <legend>Profile Picture</legend>
+
+        User Id 
+        <input type="text" name="userid"> 
+        <br><br>
+
+        Picture 
+        <input type="file" name="picture">
+
+        <hr>
+        <input type="submit" value="Submit">
+    </fieldset>
+</form>
+
+</body>
+</html>

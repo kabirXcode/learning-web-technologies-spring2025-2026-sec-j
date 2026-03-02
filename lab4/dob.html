@@ -1,0 +1,84 @@
+<html>
+<head>
+    <title>Dob Check</title>
+
+    <script>
+        function Validation() {
+
+            let dd = document.getElementById("dd").value;
+            let mm = document.getElementById("mm").value;
+            let yyyy = document.getElementById("yyyy").value;
+
+            if (dd == "" || mm == "" || yyyy == "") {
+                alert("Cannot be empty");
+                return false;
+            }
+
+        for (let i = 0; i < dd.length; i++) {
+            if (dd[i] < '0' || dd[i] > '9') {
+            alert("Day must be a number");
+            return false;
+            }
+        }
+
+        for (let i = 0; i < mm.length; i++) {
+            if (mm[i] < '0' || mm[i] > '9') {
+            alert("Month must be a number");
+            return false;
+            }
+        }
+
+        for (let i = 0; i < yyyy.length; i++) {
+            if (yyyy[i] < '0' || yyyy[i] > '9') {
+            alert("Year must be a number");
+            return false;
+            }
+        }
+
+            if (dd < 1 || dd > 31) {
+                alert("Day must be between 1-31");
+                return false;
+            }
+
+            if (mm < 1 || mm > 12) {
+                alert("Month must be between 1-12");
+                return false;
+            }
+
+            if (yyyy < 1900 || yyyy > 2016) {
+                alert("Year must be between 1900-2016");
+                return false;
+            }
+
+            return true;
+        }
+    </script>
+
+</head>
+
+<body>
+
+<form onsubmit="return Validation()">
+    <fieldset style="width: 300px;">
+        <legend>Date of Birth</legend>
+
+        <table>
+            <tr>
+                <td>dd</td>
+                <td>mm</td>
+                <td>yyyy</td>
+            </tr>
+            <tr>
+                <td><input type="text" id="dd" size="2"> /</td>
+                <td><input type="text" id="mm" size="2"> /</td>
+                <td><input type="text" id="yyyy" size="4"></td>
+            </tr>
+        </table>
+
+        <hr>
+        <input type="submit" value="Submit">
+    </fieldset>
+</form>
+
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>EmailCheck</title>
+    <script>
+        function Validation() {
+
+            let email = document.getElementById("email").value.trim();
+
+            if (email == "") {
+                alert("Cannot be empty");
+                return false;
+            }
+            
+            if (email.includes(" ")) {
+                alert("Email cannot contain space");
+                return false;
+            }
+
+            if (!email.includes("@")) {
+                alert("Invalid email address, email must contain @");
+                return false;
+            }
+
+            if (email.startsWith("@")) {
+                alert("Invalid email address, You can't put '@' first");
+                return false;
+            }
+
+            if (email.endsWith("@")) {
+                alert("Invalid email address, You can't put '@' at last");
+                return false;
+            }
+
+            if (email.endsWith(".")) {
+                alert("Invalid email address, dot cannot be last character");
+                return false;
+            }
+
+            return true;
+        }
+    </script>
+</head>
+<body>
+
+    <form onsubmit="return Validation()">
+        <label>Email:</label><br>
+        <input type="text" id="email"><br><br>
+        <input type="submit" value="Submit">
+    </form>
+
+</body>
+</html>

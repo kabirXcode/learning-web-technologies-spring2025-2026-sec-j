@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>NAMECheck</title>
+    <script>
+        function Validation() {
+
+            let name = document.getElementById("name").value.trim();
+
+            if (name == "") {
+                alert("Cannot be empty");
+                return false;
+            }
+
+            if (name.split("").length < 2) {
+                alert("Must contain at least two words");
+                return false;
+            }
+
+            let firstChar = name[0];
+            if (!((firstChar >= 'A' && firstChar <= 'Z') || (firstChar >= 'a' && firstChar <= 'z'))) {
+                alert("Must start with a letter");
+                return false;
+            }
+
+            for (let i = 0; i < name.length; i++) {
+                let ch = name[i];
+
+                if (!(
+                    (ch >= 'A' && ch <= 'Z') ||
+                    (ch >= 'a' && ch <= 'z') ||
+                    ch == '.' ||ch == '-' ||ch == ' '
+                )) {
+                    alert("Only letters, dot(.) or dash(-) allowed");
+                    return false;
+                }
+            }
+
+            return true;
+        }
+    </script>
+</head>
+<body>
+
+    <form onsubmit="return Validation()">
+        <label>Name:</label><br>
+        <input type="text" id="name"><br><br>
+        <input type="submit" value="Submit">
+    </form>
+
+</body>
+</html>
