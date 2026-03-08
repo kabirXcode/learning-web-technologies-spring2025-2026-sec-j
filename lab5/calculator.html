@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Calculator</title>
+
+<style>
+.calculator{
+    width:200px;
+    margin:50px auto;
+    border:3px solid black;
+    padding:10px;
+    text-align:center;
+}
+
+#display{
+    width:180px;
+    height:30px;
+    margin-bottom:10px;
+}
+
+button{
+    width:45px;
+    height:35px;
+    margin:2px;
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="calculator">
+
+<input type="text" id="display" readonly>
+<br>
+
+<div id="buttons"></div>
+
+</div>
+
+<script>
+
+let values = [
+'7','8','9','/',
+'4','5','6','*',
+'1','2','3','-',
+'0','=','+','C'
+];
+
+let num1 = "";
+let num2 = "";
+let operator = "";
+
+let container = document.getElementById("buttons");
+
+for(let i=0;i<values.length;i++)
+{
+    let btn = document.createElement("button");
+    btn.innerText = values[i];
+
+    btn.onclick = function(){
+
+        let display = document.getElementById("display");
+        let v = values[i];
+
+        if(v >= '0' && v <= '9')
+        {
+            if(operator == "")
+            {
+                num1 += v;
+                display.value = num1;
+            }
+            else
+            {
+                num2 += v;
+                display.value = num1 + operator + num2;
+            }
+        }
+
+        else if(v == '+' || v == '-' || v == '*' || v == '/')
+        {
+            operator = v;
+            display.value = num1 + operator;
+        }
+
+        else if(v == '=')
+        {
+            let result;
+
+            if(operator == '+') 
+            result = Number(num1) + Number(num2);
+            if(operator == '-') 
+            result = Number(num1) - Number(num2);
+            if(operator == '*') 
+            result = Number(num1) * Number(num2);
+            if(operator == '/')
+            result = Number(num1) / Number(num2);
+
+            display.value = result;
+
+            num1 = result;
+            num2 = "";
+            operator = "";
+        }
+
+        else if(v == 'C')
+        {
+            num1 = "";
+            num2 = "";
+            operator = "";
+            display.value = "";
+        }
+
+    };
+
+    container.appendChild(btn);
+
+    if((i+1)%4 == 0)
+    {
+        container.appendChild(document.createElement("br"));
+    }
+}
+
+</script>
+
+</body>
+</html>
