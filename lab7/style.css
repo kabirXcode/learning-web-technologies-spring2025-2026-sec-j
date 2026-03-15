@@ -1,0 +1,31 @@
+body{
+font-family: Arial, sans-serif;
+background-color:#b3e6f0;
+}
+
+.container{
+width:600px;
+margin:80px auto;
+background:rgb(186, 221, 112);
+padding:20px;
+border:3px solid #0c0101;
+border-radius:6px;
+text-align:center;
+}
+
+table{
+width:100%;
+border-collapse:collapse;
+margin-top:20px;
+}
+
+th,td{
+border:2px solid #070005;
+padding:10px;
+}
+
+input{
+width:80px;
+padding:5px;
+text-align:center;
+}
