@@ -10,7 +10,6 @@
 <body>
     <table border="1" width="100%" cellspacing="0" cellpadding="10">
 
-        <!-- Header -->
         <tr>
             <td style="border-right: none;">
                 <h1 style="display: inline; color: green;">X</h1>
@@ -24,7 +23,6 @@
             </td>
         </tr>
 
-        <!-- Body -->
         <tr height="300px">
             <td colspan="2" align="center">
 
